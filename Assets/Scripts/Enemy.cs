@@ -12,5 +12,10 @@ public class Enemy : MonoBehaviour
             ScoreManager.instance.ChangeScore(3);
             Destroy(gameObject);
         }
+        if (other.collider.tag == "Player")
+        {
+            ScoreManager.instance.ChangeHealth(10);
+            Destroy(gameObject);
+        }
     }
 }
