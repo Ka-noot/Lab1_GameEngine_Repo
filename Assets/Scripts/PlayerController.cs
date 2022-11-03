@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAction inputAction;
     Vector2 move;
     Vector2 rotate;
-    private float walkSpeed = 1f;
+    private float walkSpeed = 0.5f;
     public Camera playerCamera;
     Vector3 cameraRotation;
 
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     private float distanceToGround;
     private bool isGrounded = true;
-    public float jump = 3f;
+    public float jump = 5f;
 
     //Player Animation
     Animator playerAnimator;
@@ -29,26 +29,17 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public Transform projectilePos;
 
-    private void OnEnable()
-    {
-        inputAction.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputAction.Player.Disable();
-    }
-
-
     // Start is called before the first frame update
-    void Awake()
+    //changed awake to start
+    void Start()
     {
         if (!instance)
         {
             instance = this;
         }
 
-        inputAction = new PlayerAction();
+        //using controller from PlayerInputController
+        inputAction = PlayerInputController.controller.inputAction;
 
         inputAction.Player.Move.performed += cntxt => move = cntxt.ReadValue<Vector2>();
         inputAction.Player.Move.canceled += cntxt => move = Vector2.zero;
@@ -75,8 +66,8 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         Rigidbody bulletRb = Instantiate(bullet, projectilePos.position, Quaternion.identity).GetComponent<Rigidbody>();
-        bulletRb.AddForce(transform.forward * 15f, ForceMode.Impulse);
-        bulletRb.AddForce(transform.up * 1f, ForceMode.Impulse);
+        bulletRb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+        bulletRb.AddForce(transform.up * 5f, ForceMode.Impulse);
     }
 
     // Update is called once per frame
