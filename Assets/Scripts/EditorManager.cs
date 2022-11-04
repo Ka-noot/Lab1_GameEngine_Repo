@@ -102,7 +102,7 @@ public class EditorManager : MonoBehaviour
         {
             editorMode = true;
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
