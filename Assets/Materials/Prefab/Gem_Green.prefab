@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1051695153715288850}
   - component: {fileID: 4122909939070670007}
   - component: {fileID: 2221246546944254077}
+  - component: {fileID: -8230700176262302471}
   m_Layer: 0
   m_Name: Gem_Green
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8230700176262302471
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419837000452096424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4126542436946315128, guid: 4eb61e168d010f245bf0b8fae8379678, type: 3}
